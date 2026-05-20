@@ -81,7 +81,17 @@ sudo grep "Listen" /etc/httpd/conf/httpd.conf | sudo tee /root/httpd_listen.txt
 ## Step 4 — Verify the file
 
 ```bash
-cat /root/httpd_listen.txt
+sudo cat /root/httpd_listen.txt
+```
+
+> **Note:** `/root/` is root-owned — `cat` requires `sudo` or you'll get `Permission denied` even as ec2-user.
+
+**Expected output:**
+```
+# Listen: Allows you to bind Apache to specific IP addresses and/or
+# Change this to Listen on a specific IP address, but note that if
+#Listen 12.34.56.78:80
+Listen 80
 ```
 
 **Expected output:**
